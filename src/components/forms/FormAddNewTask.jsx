@@ -1,27 +1,37 @@
 import clsx from 'clsx'
 import { useState } from 'react'
+import PlusIcon from '../../Icons/plus.svg';
 import css from './Forms.module.css'
 
 const FormAddNewTask = props => {
-	const [addNewTask] = props
-	const [values, setValues] = useState({
-		title: '',
-		description: ''
-	})
+	const {formSubmit, isFormVisible, setFormVisible, handleAddNewClick} = props
+	const initialState = {
+		title: "",
+		description: "",
+		error: undefined,
+	  };
+	  const [values, setValues] = useState(initialState);
 
 	const handleChange = (e) =>{
 		const fieldName = e.target.name
 		setValues ({...values, [fieldName]: e.target.value})
+
+		
 	}
 
-	const handleSubmit = (e) => {
-		e.target.preventDefault()
-		if(values.title){
-			addNewTask(values.title, values.description)
+	function handleSubmit(e) {
+		e.preventDefault();
+		if (values.title) {
+		  formSubmit(values.title, values.description, values.error);
+		  setFormVisible(false);
+		  setValues(initialState);
+		} else {
+		  setValues({ ...values, error: "To add a task enter a title" });
+		  setFormVisible(false);
 		}
+	  }
 
-
-	}
+	if(isFormVisible) {
 	return (
 		<form className={css.form} onSubmit={handleSubmit}>
 			<input
@@ -40,9 +50,19 @@ const FormAddNewTask = props => {
 				placeholder='Enter task description'
 				value={values.description}
 			/>
-			<button className={css.submit} type='submit'>Add</button>
+			<button className={clsx(css.button, css.submit)}  onClick={handleSubmit} type='submit'>Submit</button>
 		</form>
 	)
+	}
+	return (
+		<>
+		<div className='error'>{values.error}</div>
+		<button className={clsx(css.button, css.add)} onClick={handleAddNewClick}>
+		  <img src={PlusIcon} alt='plus icon' className={css.plus_icon}/>
+				  Add card
+			  </button>
+		</>      
+	  )
 }
 
 export default FormAddNewTask

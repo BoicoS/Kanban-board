@@ -65,3 +65,19 @@
 	color: #0067a3;
 	text-decoration: underline;
 }
+
+@media screen and (max-width: 480px) {
+
+
+	.dropdown-button {
+		padding: 10px 10px;
+	}
+
+	.dropdown {
+		top: 65px;
+		right: 11px;
+		box-shadow: 2px 2px 15px rgba(122, 122, 122, 0.5);
+	}
+
+	
+}

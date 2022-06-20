@@ -13,6 +13,7 @@ const Board = (props) => {
 			description: description,
 			created: new Date().toISOString,
 			status:LIST_TYPES.BACKLOG,
+			value: title
 		}
 		setTasks([...tasks, newTask])
 	}

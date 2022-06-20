@@ -2,3 +2,15 @@
 	display: flex;
 	/* flex-wrap: wrap; */
 }
+
+@media screen and (max-width: 480px) {
+	
+	.board {
+		width:100%;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
+
+	
+}

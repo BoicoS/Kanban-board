@@ -15,7 +15,7 @@ const Footer = props => {
 			})}
 
 			<div className={css.copy}>
-				Created by <a href='https://github.com/ytokarevskaya' target='_blank' rel='noreferrer'>@ytokarevskaya</a>
+				Created by <a href='https://github.com/BoicoS/Kanban-board.git' target='_blank' rel='noreferrer'>Кадочникова Ульяна, {(new Date().getFullYear())}</a>
 			</div>
 		</footer>
 	)

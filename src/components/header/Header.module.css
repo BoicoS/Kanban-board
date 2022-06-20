@@ -6,6 +6,16 @@
 	padding: 0 20px;
 }
 
+.title {
+	/* font-family: Roboto; */
+	font-style: normal;
+	font-weight: normal;
+	font-size: 28px;
+	line-height: 15px;
+	font-weight: 400;
+	color: #ffffff;
+}
+
 .logo {
 	width: 35px;
 	margin-right: 15px;
@@ -13,4 +23,27 @@
 
 .sprint {
 	margin-left: auto;
+}
+
+@media screen and (max-width: 480px) {
+	.title {
+		display: none;
+	}
+
+	.header {
+		background: #0079bf;
+		justify-content: flex-end;
+	}
+
+	.dropdown-button {
+		padding: 10px 10px;
+	}
+
+	.dropdown {
+		top: 65px;
+		right: 11px;
+		box-shadow: 2px 2px 15px rgba(122, 122, 122, 0.5);
+	}
+
+	
 }
